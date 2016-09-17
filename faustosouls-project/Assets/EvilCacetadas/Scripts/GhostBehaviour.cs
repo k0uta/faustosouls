@@ -13,23 +13,37 @@ public class GhostBehaviour : MonoBehaviour {
 
 	private Vector2 size;
 
-	public Transform background;
+	private HauntedAreaBehaviour currentHauntedArea;
+
+	private SpriteRenderer spriteRenderer;
+
+	public float hauntValue;
+
+	public float hauntSpeed = 0.1f;
 
 	public float moveSpeed = 5.0f;
 
-	public float checkTimeThreshold = 2.0f;
+	public float enterCheckTime = 2.0f;
 
-	public float stayProbability = 0.3f;
+	public float exitCheckTime = 4.0f;
 
-	// Use this for initialization
+	public float enterProbability = 0.3f;
+
+	public float exitProbability = 0.5f;
+
 	void Start () {
 		isWandering = true;
 		nextTarget = transform.position;
-		timeWithoutCheck = 0;
+		timeWithoutCheck = enterCheckTime;
+		hauntValue = 0f;
+
+		Transform background = GameObject.Find ("Background").transform;
 
 		SpriteRenderer ghostSprite = transform.FindChild ("Sprite").GetComponent<SpriteRenderer> ();
 		SpriteRenderer backgroundSprite = background.FindChild("DefaultBackground").GetComponent<SpriteRenderer> ();
 		boundaries = new Vector2 ((float)backgroundSprite.bounds.size.x * 0.5f - (float)ghostSprite.bounds.size.x * 0.5f, (float)backgroundSprite.bounds.size.y * 0.5f - (float)ghostSprite.bounds.size.y * 0.5f);
+
+		spriteRenderer = transform.FindChild ("Sprite").GetComponent<SpriteRenderer> ();
 	}
 
 	float RandomSign() {
@@ -64,36 +78,68 @@ public class GhostBehaviour : MonoBehaviour {
 			CheckBoundaries ();
 		}
 	}
-	
-	// Update is called once per frame
+
+	void Haunt() {
+		hauntValue += Time.deltaTime * hauntSpeed;
+		hauntValue = Mathf.Min (hauntValue, 1.0f);
+
+		if (currentHauntedArea) {
+			transform.position = Vector3.MoveTowards (transform.position, currentHauntedArea.transform.position, moveSpeed * Time.deltaTime);
+		}
+		StayCheck (currentHauntedArea);
+	}
+
 	void Update () {
 		timeWithoutCheck += Time.deltaTime;
 
-		if(isWandering)
+		if (isWandering) {
 			Wander ();
+		} else {
+			Haunt ();
+		}
 	}
 
-	bool StayCheck() {
-		if (timeWithoutCheck > checkTimeThreshold) {
-			timeWithoutCheck = 0.0f;
-			if (Random.value <= stayProbability) {
-				return true;
+	public void StayCheck(HauntedAreaBehaviour hauntedArea) {
+		if (isWandering) {
+			if (timeWithoutCheck > enterCheckTime) {
+				timeWithoutCheck = 0.0f;
+				if (Random.value <= enterProbability) {
+					StayAt (hauntedArea);
+				}
+			}
+		} else {
+			if (timeWithoutCheck > exitCheckTime) {
+				timeWithoutCheck = 0.0f;
+				if (Random.value <= exitProbability) {
+					ExitFrom (hauntedArea);
+				}
 			}
 		}
-
-		return false;
 	}
 
 	void StayAt(HauntedAreaBehaviour hauntedArea) {
 		isWandering = false;
-		Debug.Log (hauntedArea.transform.position);
+		hauntValue = 0f;
+		hauntedArea.AddGhost (this);
+		currentHauntedArea = hauntedArea;
+		spriteRenderer.color = Color.red;
+	}
+
+	void ExitFrom(HauntedAreaBehaviour hauntedArea) {
+		isWandering = true;
+		hauntValue = 0f;
+		hauntedArea.RemoveGhost (this);
+		currentHauntedArea = null;
+		spriteRenderer.color = Color.white;
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
-		if (other.tag.Equals("Cacetarea")) {
-			if (StayCheck ()) {
-				StayAt (other.GetComponent<HauntedAreaBehaviour>());
-			}
+		if (other.tag.Equals("HauntedArea")) {
+			StayCheck (other.GetComponent<HauntedAreaBehaviour> ());
 		}
+	}
+
+	public void SetState(bool state) {
+		spriteRenderer.enabled = state;
 	}
 }

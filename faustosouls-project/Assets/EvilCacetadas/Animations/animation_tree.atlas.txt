@@ -1,0 +1,104 @@
+
+animation_tree.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animations/animal_eyes_closed
+  rotate: false
+  xy: 459, 106
+  size: 29, 20
+  orig: 29, 20
+  offset: 0, 0
+  index: -1
+animations/animal_eyes_open
+  rotate: true
+  xy: 490, 97
+  size: 29, 20
+  orig: 29, 20
+  offset: 0, 0
+  index: -1
+animations/cat_body
+  rotate: false
+  xy: 151, 43
+  size: 78, 83
+  orig: 78, 83
+  offset: 0, 0
+  index: -1
+animations/cat_mouth01
+  rotate: false
+  xy: 459, 84
+  size: 29, 20
+  orig: 29, 20
+  offset: 0, 0
+  index: -1
+animations/cat_mouth02
+  rotate: true
+  xy: 490, 66
+  size: 29, 20
+  orig: 29, 20
+  offset: 0, 0
+  index: -1
+animations/cat_paw
+  rotate: false
+  xy: 288, 77
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+animations/cat_tail
+  rotate: false
+  xy: 231, 103
+  size: 73, 23
+  orig: 73, 23
+  offset: 0, 0
+  index: -1
+animations/eyes_open
+  rotate: false
+  xy: 306, 100
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_pain
+  rotate: false
+  xy: 357, 100
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/mouth_sad
+  rotate: false
+  xy: 231, 63
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/mouth_smile
+  rotate: false
+  xy: 183, 3
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/swingsgirl_arm
+  rotate: false
+  xy: 408, 100
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/swingsgirl_foot
+  rotate: false
+  xy: 151, 2
+  size: 30, 39
+  orig: 30, 39
+  offset: 0, 0
+  index: -1
+animations/swingsgirl_torso
+  rotate: true
+  xy: 2, 23
+  size: 103, 147
+  orig: 103, 147
+  offset: 0, 0
+  index: -1

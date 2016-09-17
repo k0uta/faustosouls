@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cacetarea
+  - HauntedArea
   layers:
   - Default
   - TransparentFX
@@ -39,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3578070573
+    locked: 0
+  - name: HauntedAreas
+    uniqueID: 3483807519
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
