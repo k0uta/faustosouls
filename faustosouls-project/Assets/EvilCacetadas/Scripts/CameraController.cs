@@ -187,13 +187,11 @@ public class CameraController : MonoBehaviour {
 	void StartRecording() {
 		recording = true;
 		recordingGroup.gameObject.SetActive (true);
-//		recordingGroup.SetActive (true);
 	}
 
 	void StopRecording() {
 		recording = false;
 		recordingGroup.gameObject.SetActive (false);
-//		recordingGroup.SetActive (false);
 	}
 
 	void CheckBoundaries() {

@@ -8,7 +8,7 @@ public class GhostSpawner : MonoBehaviour {
 	public Transform ghostPrefab;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		Transform background = GameObject.Find ("Background").transform;
 		SpriteRenderer backgroundSprite = background.FindChild("DefaultBackground").GetComponent<SpriteRenderer> ();
 
@@ -18,6 +18,7 @@ public class GhostSpawner : MonoBehaviour {
 		for (int i = 0; i < totalGhosts; i++) {
 			Transform ghost = Instantiate (ghostPrefab, new Vector3 (Random.Range (-boundaries.x, boundaries.x), Random.Range (-boundaries.y, boundaries.y)), Quaternion.identity) as Transform;
 			ghost.parent = transform;
+			ghost.name = "Ghost" + i;
 		}
 	}
 	
