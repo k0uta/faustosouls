@@ -12,4 +12,10 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void AddGhost(GhostBehaviour ghost) {
+	}
+
+	public void RemoveGhost(GhostBehaviour ghost) {
+	}
 }
