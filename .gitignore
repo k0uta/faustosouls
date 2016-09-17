@@ -1,35 +1,43 @@
-# =============== #
-# Unity generated #
-# =============== #
-[Tt]emp/
-[Oo]bj/
-[Bb]uild
-/[Ll]ibrary/
-sysinfo.txt
-*.stackdump
+ #For Mac developers
+ # Unity generated #
+ # =============== #
+ Temp/
+ obj/
+ Build
+ Library/
+  
  
-# ============================================= #
-# Visual Studio / MonoDevelop / Rider generated #
-# ============================================= #
-[Ee]xported[Oo]bj/
-.vs/
-/*.userprefs
-/*.csproj
-/*.pidb
-/*.suo
-/*.sln*
-/*.user
-/*.unityproj
-/*.booproj
-/.idea*/
+ # ===================================== #
+ # Visual Studio / MonoDevelop generated #
+ # ===================================== #
+ ExportedObj/
+ *.svd
+ *.userprefs
+ *.csproj
+ *.pidb
+ *.suo
+ *.sln
+ *.user
+ *.unityproj
+ *.booproj
+ *.orig
+ *.app
+ *.exe
+ *.*_data
  
-# ============ #
-# OS generated #
-# ============ #
-.DS_Store*
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-[Tt]humbs.db
-[Dd]esktop.ini
+ Build/iOS
+ Build/android
+ 
+ *.[od]
+ 
+ # ============ #
+ # OS generated #
+ # ============ #
+ .DS_Store
+ .DS_Store?
+ ._*
+ .Spotlight-V100
+ .Trashes
+ Icon?
+ ehthumbs.db
+ Thumbs.db
