@@ -108,7 +108,8 @@ public class CameraController : MonoBehaviour {
 				StartGhosting ();
 			}
 		} else {
-			StopGhosting ();
+			if (ghosting)
+				StopGhosting ();
 		}
 
 		if (Input.GetMouseButton (0)) {
@@ -116,7 +117,8 @@ public class CameraController : MonoBehaviour {
 				StartRecording ();
 			}
 		} else {
-			StopRecording ();
+			if (recording)
+				StopRecording ();
 		}
 
 		if (recording) {
