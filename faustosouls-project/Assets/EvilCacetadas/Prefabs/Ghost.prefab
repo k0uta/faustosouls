@@ -145,11 +145,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hauntValue: 0.8
   hauntSpeed: 0.8
-  moveSpeed: 2
+  moveSpeed: 1
   enterCheckTime: 2
   exitCheckTime: 4
-  enterProbability: 0.3
-  exitProbability: 0.5
+  enterProbability: 0.5
+  exitProbability: 0.3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
