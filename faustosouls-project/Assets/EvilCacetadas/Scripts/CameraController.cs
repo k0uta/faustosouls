@@ -46,6 +46,8 @@ public class CameraController : MonoBehaviour {
 
 	public float recordingMinutes = 1;
 
+	public float focusBonus = 1.0f;
+
 	public float ghostingMinutes = 1;
 
 	public Transform hudCanvas;
@@ -67,6 +69,10 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
+
+		#if UNITY_ANDROID
+		Input.gyro.enabled = true;
+		#endif
 
 		recording = true;
 
@@ -124,7 +130,9 @@ public class CameraController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape))
 			Cursor.visible = true;
 
-		if (Input.GetMouseButton (1)) {
+		bool ghostInput = Input.GetMouseButton(1);
+		bool recordInput = !ghostInput && Input.GetMouseButton(0);
+		if (ghostInput) {
 			if (!ghosting && ghostingTime > 0f) {
 				StartGhosting ();
 			}
@@ -133,7 +141,7 @@ public class CameraController : MonoBehaviour {
 				StopGhosting ();
 		}
 
-		if (Input.GetMouseButton (0)) {
+		if (recordInput) {
 			if (!recording) {
 				StartRecording ();
 			}
@@ -170,7 +178,12 @@ public class CameraController : MonoBehaviour {
 			}
 		}
 
-		transform.Translate (new Vector3 (Input.GetAxis ("Mouse X") * speed, Input.GetAxis ("Mouse Y") * speed));
+		#if UNITY_ANDROID
+		transform.Translate(new Vector3(-Input.gyro.rotationRateUnbiased.y * speed, Input.gyro.rotationRateUnbiased.x * speed));
+		#else
+		transform.Translate (new Vector3(Input.GetAxis ("Mouse X") * speed, Input.GetAxis ("Mouse Y") * speed));
+		#endif
+
 		CheckBoundaries ();
 
 		UpdateStatusText ();
@@ -180,11 +193,16 @@ public class CameraController : MonoBehaviour {
 		for (int i = 0; i < hauntedAreas.Count; i++) {
 			HauntedAreaBehaviour hauntedArea = hauntedAreas [i];
 			Vector2 hauntedAreaSize = hauntedArea.GetComponent<BoxCollider2D> ().size;
+			Vector3 viewPositionCenter = Camera.main.WorldToViewportPoint (hauntedArea.transform.position);
 			Vector3 viewPositionLeft = Camera.main.WorldToViewportPoint (hauntedArea.transform.position - new Vector3(hauntedAreaSize.x * 0.5f, 0));
 			Vector3 viewPositionRight = Camera.main.WorldToViewportPoint (hauntedArea.transform.position + new Vector3 (hauntedAreaSize.x * 0.5f, 0));
-			if ((viewPositionRight.x >= 0 && viewPositionLeft.x <= 1) && (viewPositionLeft.y >= 0 && viewPositionLeft.y <= 1)) {
-				if (recording)
-					score += (int) Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue ());
+			if ((viewPositionRight.x >= 0 && viewPositionLeft.x <= 1) && (viewPositionCenter.y >= 0 && viewPositionCenter.y <= 1)) {
+				if (recording) {
+					float positionBonus = 0.5f - ((viewPositionCenter.x > 0.5f) ? (viewPositionCenter.x - 0.5f) : (0.5f - viewPositionCenter.x));
+					positionBonus += 0.5f - ((viewPositionCenter.y > 0.5f) ? (viewPositionCenter.y - 0.5f) : (0.5f - viewPositionCenter.y));
+					positionBonus *= focusBonus;
+					score += (int)Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue () * positionBonus);
+				}
 			} else {
 				hauntedArea.CheckForBlooperRecovery ();
 			}
