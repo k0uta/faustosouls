@@ -85,7 +85,7 @@ public class CameraController : MonoBehaviour {
 		#endif
 
 		score = 0;
-		PlayerPrefs.SetInt("Score", score);
+		// PlayerPrefs.SetInt("Score", score);
 
 		evilBackgroundRenderer = background.FindChild ("EvilBackground").GetComponent<SpriteRenderer> ();
 
