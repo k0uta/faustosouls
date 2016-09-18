@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,7 +12,7 @@ public class CameraController : MonoBehaviour {
 
 	private bool ghosting;
 
-	private float score;
+	private int score;
 
 	private List<GhostBehaviour> ghosts;
 
@@ -78,6 +79,7 @@ public class CameraController : MonoBehaviour {
 		ghosting = true;
 
 		score = 0;
+		PlayerPrefs.SetInt("Score", score);
 
 		evilBackgroundRenderer = background.FindChild ("EvilBackground").GetComponent<SpriteRenderer> ();
 
@@ -151,8 +153,8 @@ public class CameraController : MonoBehaviour {
 		if (recording) {
 			recordingTime -= Time.deltaTime;
 			if (recordingTime <= 0.0f) {
-				Debug.Log ("Game Over");
-				Time.timeScale = 0;
+				PlayerPrefs.SetInt("Score", score);
+				SceneManager.LoadScene("GameOver");
 			}
 		}
 
@@ -194,7 +196,6 @@ public class CameraController : MonoBehaviour {
 			Vector3 viewPositionCenter = Camera.main.WorldToViewportPoint (hauntedArea.transform.position);
 			Vector3 viewPositionLeft = Camera.main.WorldToViewportPoint (hauntedArea.transform.position - new Vector3(hauntedAreaSize.x * 0.5f, 0));
 			Vector3 viewPositionRight = Camera.main.WorldToViewportPoint (hauntedArea.transform.position + new Vector3 (hauntedAreaSize.x * 0.5f, 0));
-
 			if ((viewPositionRight.x >= 0 && viewPositionLeft.x <= 1) && (viewPositionCenter.y >= 0 && viewPositionCenter.y <= 1)) {
 				if (recording) {
 					float positionBonus = 0.5f - ((viewPositionCenter.x > 0.5f) ? (viewPositionCenter.x - 0.5f) : (0.5f - viewPositionCenter.x));
