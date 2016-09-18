@@ -80,7 +80,7 @@ public class CameraController : MonoBehaviour {
 	void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
 
-		#if UNITY_ANDROID
+		#if UNITY_ANDROID || UNITY_IOS
 		Input.gyro.enabled = true;
 		#endif
 
@@ -123,7 +123,7 @@ public class CameraController : MonoBehaviour {
 		scoreText = hudCanvas.FindChild("ScoreText").GetComponent<Text> ();
 		scoreTextShadow = hudCanvas.FindChild("ScoreTextShadow").GetComponent<Text> ();
 		
-		#if UNITY_ANDROID
+		#if UNITY_ANDROID || UNITY_IOS
 			tutorialCanvas.FindChild("TutorialMobile").GetComponent<Image>().enabled = true;
 			tutorialCanvas.FindChild("Tutorial").GetComponent<Image>().enabled = false;
 		#else
@@ -220,7 +220,7 @@ public class CameraController : MonoBehaviour {
 			}
 		}
 
-		#if UNITY_ANDROID
+		#if UNITY_ANDROID || UNITY_IOS
 		transform.Translate(new Vector3(-Input.gyro.rotationRateUnbiased.y * speed * 2.0f, Input.gyro.rotationRateUnbiased.x * speed * 2.0f));
 		#else
 		transform.Translate (new Vector3(Input.GetAxis ("Mouse X") * speed, Input.GetAxis ("Mouse Y") * speed));
