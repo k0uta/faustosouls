@@ -201,7 +201,7 @@ public class CameraController : MonoBehaviour {
 					float positionBonus = 0.5f - ((viewPositionCenter.x > 0.5f) ? (viewPositionCenter.x - 0.5f) : (0.5f - viewPositionCenter.x));
 					positionBonus += 0.5f - ((viewPositionCenter.y > 0.5f) ? (viewPositionCenter.y - 0.5f) : (0.5f - viewPositionCenter.y));
 					positionBonus *= focusBonus;
-					score += Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue () * positionBonus);
+					score += (int)Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue () * positionBonus);
 				}
 			} else {
 				hauntedArea.CheckForBlooperRecovery ();
