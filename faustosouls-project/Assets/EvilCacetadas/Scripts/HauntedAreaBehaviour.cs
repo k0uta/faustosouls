@@ -91,15 +91,15 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		blooperTrigger = BlooperTrigger.NONE;
 
 		spineAnimationState.SetAnimation (0, blooperAnimation, false);
-		foreach (var ghost in ghosts) {
-			ghost.StayCheck (this);
+		for (int i = 0; i < ghosts.Count; i++) {
+			ghosts [i].StayCheck (this, true);
 		}
 	}
 
 	void CheckForBlooper() {
 		float totalHauntValue = 0f;
-		foreach (var ghost in ghosts) {
-			totalHauntValue += (ghost.hauntValue * ghostHauntWeight);
+		for (int i = 0; i < ghosts.Count; i++) {
+			totalHauntValue += (ghosts[i].hauntValue * ghostHauntWeight);
 		}
 
 		float valueToBlooper = Random.Range(blooperProbability, 1.0f);

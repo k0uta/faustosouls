@@ -1,0 +1,146 @@
+
+animation_bbq.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animations/bbq_arm
+  rotate: true
+  xy: 326, 35
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/bbq_fire01
+  rotate: false
+  xy: 872, 189
+  size: 40, 56
+  orig: 40, 56
+  offset: 0, 0
+  index: -1
+animations/bbq_fire02
+  rotate: false
+  xy: 284, 28
+  size: 40, 56
+  orig: 40, 56
+  offset: 0, 0
+  index: -1
+animations/bbq_foot
+  rotate: false
+  xy: 900, 138
+  size: 30, 39
+  orig: 30, 39
+  offset: 0, 0
+  index: -1
+animations/bbq_smoke
+  rotate: false
+  xy: 932, 145
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+animations/bbq_tool
+  rotate: false
+  xy: 284, 86
+  size: 79, 41
+  orig: 79, 41
+  offset: 0, 0
+  index: -1
+animations/bbq_torso_back
+  rotate: true
+  xy: 425, 142
+  size: 103, 147
+  orig: 103, 147
+  offset: 0, 0
+  index: -1
+animations/bbq_torso_backburnt
+  rotate: true
+  xy: 574, 142
+  size: 103, 147
+  orig: 103, 147
+  offset: 0, 0
+  index: -1
+animations/bbq_torso_front
+  rotate: true
+  xy: 723, 142
+  size: 103, 147
+  orig: 103, 147
+  offset: 0, 0
+  index: -1
+animations/explosion01
+  rotate: false
+  xy: 2, 129
+  size: 139, 116
+  orig: 139, 116
+  offset: 0, 0
+  index: -1
+animations/explosion02
+  rotate: false
+  xy: 2, 11
+  size: 139, 116
+  orig: 139, 116
+  offset: 0, 0
+  index: -1
+animations/explosion03
+  rotate: false
+  xy: 143, 129
+  size: 139, 116
+  orig: 139, 116
+  offset: 0, 0
+  index: -1
+animations/explosion04
+  rotate: false
+  xy: 143, 11
+  size: 139, 116
+  orig: 139, 116
+  offset: 0, 0
+  index: -1
+animations/explosion05
+  rotate: false
+  xy: 284, 129
+  size: 139, 116
+  orig: 139, 116
+  offset: 0, 0
+  index: -1
+animations/eye_open
+  rotate: true
+  xy: 284, 2
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+animations/eyes_open
+  rotate: false
+  xy: 971, 219
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_open-white
+  rotate: true
+  xy: 872, 138
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_pain
+  rotate: false
+  xy: 914, 179
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/mouth_sad
+  rotate: false
+  xy: 365, 89
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/mouth_smile
+  rotate: false
+  xy: 914, 207
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1

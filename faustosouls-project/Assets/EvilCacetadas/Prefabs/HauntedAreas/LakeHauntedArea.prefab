@@ -1,76 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &119896
+--- !u!1 &136048
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 467670}
-  - 33: {fileID: 3326968}
-  - 23: {fileID: 2393196}
-  - 114: {fileID: 11407772}
+  - 4: {fileID: 431190}
+  - 33: {fileID: 3335068}
+  - 23: {fileID: 2316516}
+  - 114: {fileID: 11433718}
+  - 50: {fileID: 5027880}
+  - 114: {fileID: 11486842}
+  - 61: {fileID: 6176472}
   m_Layer: 0
-  m_Name: Spine
-  m_TagString: Untagged
+  m_Name: LakeHauntedArea
+  m_TagString: HauntedArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &186812
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 425240}
-  - 61: {fileID: 6141932}
-  - 114: {fileID: 11409670}
-  m_Layer: 0
-  m_Name: Ghost
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &425240
+--- !u!4 &431190
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186812}
+  m_GameObject: {fileID: 136048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 467670}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &467670
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.68, y: 0.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 425240}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2393196
+--- !u!23 &2316516
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119896}
+  m_GameObject: {fileID: 136048}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0b2b68e1e2b104063bce6a9f849cbd47, type: 2}
+  - {fileID: 2100000, guid: e6affe538d46c4e45947e4b13f9bf46c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -84,41 +57,58 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
---- !u!33 &3326968
+  m_SortingLayerID: -811159777
+  m_SortingOrder: 0
+--- !u!33 &3335068
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119896}
+  m_GameObject: {fileID: 136048}
   m_Mesh: {fileID: 0}
---- !u!61 &6141932
+--- !u!50 &5027880
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136048}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &6176472
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186812}
+  m_GameObject: {fileID: 136048}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.09242302, y: -0.046242416}
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
---- !u!114 &11407772
+  m_Size: {x: 1.22936, y: 1.5776942}
+--- !u!114 &11433718
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119896}
+  m_GameObject: {fileID: 136048}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 6ef56820686544f23ba8462f8f81f88a, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 514d09242884e4ad98dddb3e56f5c080, type: 2}
   initialSkinName: default
   separatorSlotNames: []
   zSpacing: 0
@@ -132,49 +122,32 @@ MonoBehaviour:
   _animationName: normal_idle
   loop: 1
   timeScale: 1
---- !u!114 &11409670
+--- !u!114 &11486842
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186812}
+  m_GameObject: {fileID: 136048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0ed1b09b5834b0eb71aa7731c5af93, type: 3}
+  m_Script: {fileID: 11500000, guid: d98c71ab476d945fead212ad08e354e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hauntValue: 0.8
-  hauntSpeed: 0.8
-  moveSpeed: 1
-  enterCheckTime: 2
-  exitCheckTime: 4
-  enterProbability: 0.5
-  exitProbability: 0.3
-  exitAfterBlooperProbability: 0.8
+  checkTime: 2
+  blooperProbability: 0.2
+  strongBlooperHauntValue: 0.6
+  ghostHauntWeight: 0.15
+  weakBlooperValuePerSecond: 300
+  strongBlooperValuePerSecond: 600
+  blooperValueDecayPerSecond: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: hauntValue
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 186812}
+  m_RootGameObject: {fileID: 136048}
   m_IsPrefabParent: 1
