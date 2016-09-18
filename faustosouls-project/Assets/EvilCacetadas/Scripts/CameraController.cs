@@ -177,10 +177,10 @@ public class CameraController : MonoBehaviour {
 	void CheckCameraArea() {
 		for (int i = 0; i < hauntedAreas.Count; i++) {
 			HauntedAreaBehaviour hauntedArea = hauntedAreas [i];
-			Vector3 viewPosition = Camera.main.WorldToViewportPoint (hauntedArea.transform.position);
-//			Vector2 hauntedAreaSize = hauntedArea.GetComponent<BoxCollider2D> ().size;
-//			viewPosition += new Vector3 (hauntedAreaSize.x * 0.5f, hauntedAreaSize.y * 0.5f);
-			if ((viewPosition.x >= -0.2 && viewPosition.x <= 1.2) && (viewPosition.y >= -0.2 && viewPosition.y <= 1.2)) {
+			Vector2 hauntedAreaSize = hauntedArea.GetComponent<BoxCollider2D> ().size;
+			Vector3 viewPositionLeft = Camera.main.WorldToViewportPoint (hauntedArea.transform.position - new Vector3(hauntedAreaSize.x * 0.5f, 0));
+			Vector3 viewPositionRight = Camera.main.WorldToViewportPoint (hauntedArea.transform.position + new Vector3 (hauntedAreaSize.x * 0.5f, 0));
+			if ((viewPositionRight.x >= 0 && viewPositionLeft.x <= 1) && (viewPositionLeft.y >= 0 && viewPositionLeft.y <= 1)) {
 				if (recording)
 					score += Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue ());
 			} else {
