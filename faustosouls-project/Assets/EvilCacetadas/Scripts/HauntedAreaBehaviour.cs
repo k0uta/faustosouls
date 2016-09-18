@@ -11,6 +11,8 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 	private List<GhostBehaviour> ghosts;
 
+	private AudioSource audioSource;
+
 	private bool bloopering;
 
 	private enum BlooperTrigger
@@ -42,6 +44,8 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 	public float blooperValueDecayPerSecond = 5f;
 
+	public AudioClip[] blooperSounds;
+
 	// Use this for initialization
 	void Start () {
 		ghosts = new List<GhostBehaviour> ();
@@ -52,7 +56,9 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		skeletonAnimation = GetComponent<SkeletonAnimation> ();
 		spineAnimationState = skeletonAnimation.state;
 		spineAnimationState.Complete += OnSpineComplete;
+		spineAnimationState.Event += EventHandler;
 		blooperTrigger = BlooperTrigger.NONE;
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void OnSpineComplete (Spine.AnimationState state, int trackIndex, int loopCount) {
@@ -80,6 +86,23 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		blooped = true;
 	}
 
+	void EventHandler(Spine.AnimationState state, int trackIndex, Spine.Event spineEvent) {
+		Debug.Log (spineEvent.Data.name);
+		switch (spineEvent.Data.name) {
+		case "snd_cassetada_1":
+			audioSource.PlayOneShot (blooperSounds [0]);
+			break;
+		case "snd_cassetada_2":
+			audioSource.PlayOneShot (blooperSounds [1]);
+			break;
+		case "snd_cassetada_3":
+			audioSource.PlayOneShot (blooperSounds [2]);
+			break;
+		default:
+			break;			
+		}
+	}
+
 	void CheckBlooperAnimation() {
 		if (blooperTrigger == BlooperTrigger.NONE)
 			return;
@@ -91,6 +114,7 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		blooperTrigger = BlooperTrigger.NONE;
 
 		spineAnimationState.SetAnimation (0, blooperAnimation, false);
+
 		for (int i = 0; i < ghosts.Count; i++) {
 			ghosts [i].StayCheck (this, true);
 		}
@@ -140,5 +164,9 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 		blooped = false;
 		spineAnimationState.SetAnimation (0, "normal_idle", true);
+	}
+
+	public bool CanBeHaunted() {
+		return (!blooped && !bloopering && (blooperTrigger == BlooperTrigger.NONE));
 	}
 }

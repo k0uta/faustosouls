@@ -4,93 +4,121 @@ size: 1024,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+animations/eyes_bored
+  rotate: false
+  xy: 2, 7
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
 animations/eyes_open
   rotate: false
-  xy: 886, 74
+  xy: 53, 7
   size: 49, 26
   orig: 49, 26
   offset: 0, 0
   index: -1
 animations/eyes_open-white
-  rotate: true
-  xy: 991, 200
+  rotate: false
+  xy: 104, 7
   size: 49, 26
   orig: 49, 26
   offset: 0, 0
   index: -1
 animations/eyes_pain
   rotate: false
-  xy: 255, 3
+  xy: 155, 7
   size: 49, 26
   orig: 49, 26
   offset: 0, 0
   index: -1
-animations/lakewater
-  rotate: false
-  xy: 2, 2
-  size: 251, 67
-  orig: 251, 67
+animations/mouth_bored
+  rotate: true
+  xy: 827, 199
+  size: 55, 38
+  orig: 55, 38
   offset: 0, 0
   index: -1
 animations/mouth_sad
-  rotate: false
-  xy: 255, 31
+  rotate: true
+  xy: 827, 142
   size: 55, 38
   orig: 55, 38
   offset: 0, 0
   index: -1
 animations/mouth_smile
-  rotate: false
-  xy: 312, 31
+  rotate: true
+  xy: 867, 199
   size: 55, 38
   orig: 55, 38
   offset: 0, 0
   index: -1
 animations/splash01
-  rotate: false
-  xy: 2, 71
+  rotate: true
+  xy: 2, 35
   size: 219, 178
   orig: 219, 178
   offset: 0, 0
   index: -1
 animations/splash02
-  rotate: false
-  xy: 223, 71
+  rotate: true
+  xy: 182, 35
   size: 219, 178
   orig: 219, 178
   offset: 0, 0
   index: -1
 animations/splash03
-  rotate: false
-  xy: 444, 71
+  rotate: true
+  xy: 362, 35
   size: 219, 178
   orig: 219, 178
   offset: 0, 0
   index: -1
 animations/splash_shark
-  rotate: false
-  xy: 665, 71
+  rotate: true
+  xy: 542, 35
   size: 219, 178
   orig: 219, 178
   offset: 0, 0
   index: -1
 animations/swimguy2_arm
   rotate: false
-  xy: 369, 43
+  xy: 206, 7
   size: 49, 26
   orig: 49, 26
   offset: 0, 0
   index: -1
 animations/swimguy2_foot
   rotate: true
-  xy: 937, 70
+  xy: 308, 3
   size: 30, 39
   orig: 30, 39
   offset: 0, 0
   index: -1
 animations/swimguy2_torso
   rotate: false
-  xy: 886, 102
+  xy: 722, 107
+  size: 103, 147
+  orig: 103, 147
+  offset: 0, 0
+  index: -1
+animations/swimguy_arm
+  rotate: false
+  xy: 257, 7
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/swimguy_foot
+  rotate: true
+  xy: 349, 3
+  size: 30, 39
+  orig: 30, 39
+  offset: 0, 0
+  index: -1
+animations/swimguy_torso
+  rotate: true
+  xy: 722, 2
   size: 103, 147
   orig: 103, 147
   offset: 0, 0

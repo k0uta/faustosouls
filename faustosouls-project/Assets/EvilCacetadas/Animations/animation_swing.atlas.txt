@@ -1,0 +1,153 @@
+
+animation_swing.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animations/boy_arm
+  rotate: false
+  xy: 568, 112
+  size: 38, 23
+  orig: 38, 23
+  offset: 0, 0
+  index: -1
+animations/boy_foot
+  rotate: true
+  xy: 952, 225
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+animations/boy_forearm
+  rotate: false
+  xy: 880, 226
+  size: 34, 23
+  orig: 34, 23
+  offset: 0, 0
+  index: -1
+animations/boy_torso
+  rotate: false
+  xy: 433, 137
+  size: 90, 112
+  orig: 90, 112
+  offset: 0, 0
+  index: -1
+animations/butterfly01
+  rotate: true
+  xy: 433, 73
+  size: 62, 69
+  orig: 62, 69
+  offset: 0, 0
+  index: -1
+animations/butterfly02
+  rotate: false
+  xy: 617, 180
+  size: 62, 69
+  orig: 62, 69
+  offset: 0, 0
+  index: -1
+animations/eyes_bored
+  rotate: false
+  xy: 59, 14
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_open
+  rotate: false
+  xy: 681, 183
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_open-white
+  rotate: false
+  xy: 738, 223
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_pain
+  rotate: false
+  xy: 789, 223
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/girl_arm
+  rotate: false
+  xy: 840, 226
+  size: 38, 23
+  orig: 38, 23
+  offset: 0, 0
+  index: -1
+animations/girl_foot
+  rotate: true
+  xy: 985, 225
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+animations/girl_forearm
+  rotate: false
+  xy: 916, 226
+  size: 34, 23
+  orig: 34, 23
+  offset: 0, 0
+  index: -1
+animations/girl_torso
+  rotate: false
+  xy: 525, 137
+  size: 90, 112
+  orig: 90, 112
+  offset: 0, 0
+  index: -1
+animations/mouth_bored
+  rotate: false
+  xy: 2, 2
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/mouth_sad
+  rotate: false
+  xy: 617, 140
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/mouth_smile
+  rotate: false
+  xy: 681, 211
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/swingback
+  rotate: false
+  xy: 282, 71
+  size: 149, 178
+  orig: 149, 178
+  offset: 0, 0
+  index: -1
+animations/swingrope
+  rotate: true
+  xy: 2, 42
+  size: 21, 128
+  orig: 21, 128
+  offset: 0, 0
+  index: -1
+animations/swingseat
+  rotate: false
+  xy: 504, 91
+  size: 62, 44
+  orig: 62, 44
+  offset: 0, 0
+  index: -1
+animations/swingtop
+  rotate: true
+  xy: 2, 65
+  size: 184, 278
+  orig: 184, 278
+  offset: 0, 0
+  index: -1

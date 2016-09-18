@@ -1,20 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &166098
+--- !u!1 &192462
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 435920}
-  - 33: {fileID: 3364122}
-  - 23: {fileID: 2303694}
-  - 114: {fileID: 11472700}
-  - 50: {fileID: 5097178}
-  - 114: {fileID: 11490428}
-  - 61: {fileID: 6197314}
-  - 82: {fileID: 8266826}
+  - 4: {fileID: 470398}
+  - 33: {fileID: 3307740}
+  - 23: {fileID: 2329328}
+  - 114: {fileID: 11477518}
+  - 50: {fileID: 5042458}
+  - 114: {fileID: 11439750}
+  - 61: {fileID: 6149958}
+  - 82: {fileID: 8269546}
   m_Layer: 0
   m_Name: BBQHauntedArea
   m_TagString: HauntedArea
@@ -22,24 +22,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &435920
+--- !u!4 &470398
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166098}
+  m_GameObject: {fileID: 192462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.92, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2303694
+--- !u!23 &2329328
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166098}
+  m_GameObject: {fileID: 192462}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,20 +60,20 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -811159777
   m_SortingOrder: 0
---- !u!33 &3364122
+--- !u!33 &3307740
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166098}
+  m_GameObject: {fileID: 192462}
   m_Mesh: {fileID: 0}
---- !u!50 &5097178
+--- !u!50 &5042458
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166098}
+  m_GameObject: {fileID: 192462}
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -84,12 +84,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6197314
+--- !u!61 &6149958
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166098}
+  m_GameObject: {fileID: 192462}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -98,12 +98,12 @@ BoxCollider2D:
   m_Offset: {x: 0.2342903, y: -0.046242416}
   serializedVersion: 2
   m_Size: {x: 1.8250926, y: 1.5776942}
---- !u!82 &8266826
+--- !u!82 &8269546
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166098}
+  m_GameObject: {fileID: 192462}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -117,7 +117,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 7
+  MaxDistance: 8
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -172,12 +172,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &11472700
+--- !u!114 &11439750
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166098}
+  m_GameObject: {fileID: 192462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98c71ab476d945fead212ad08e354e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkTime: 2
+  blooperProbability: 0.3
+  strongBlooperHauntValue: 0.7
+  ghostHauntWeight: 0.1
+  weakBlooperValuePerSecond: 300
+  strongBlooperValuePerSecond: 600
+  blooperValueDecayPerSecond: 10
+  blooperSounds:
+  - {fileID: 8300000, guid: 063cfbc43a92e4df887706bd4dc6e53f, type: 3}
+  - {fileID: 8300000, guid: 2051f3e0fbc5244949dcb036d1d623c1, type: 3}
+  - {fileID: 8300000, guid: 4de471328d7ab4396a5ff16b265d4a04, type: 3}
+--- !u!114 &11477518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192462}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
@@ -197,24 +219,6 @@ MonoBehaviour:
   _animationName: normal_idle
   loop: 1
   timeScale: 1
---- !u!114 &11490428
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98c71ab476d945fead212ad08e354e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkTime: 2
-  blooperProbability: 0.2
-  strongBlooperHauntValue: 0.6
-  ghostHauntWeight: 0.15
-  weakBlooperValuePerSecond: 300
-  strongBlooperValuePerSecond: 600
-  blooperValueDecayPerSecond: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -224,5 +228,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 166098}
+  m_RootGameObject: {fileID: 192462}
   m_IsPrefabParent: 1
