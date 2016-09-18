@@ -36,7 +36,7 @@ public class GhostBehaviour : MonoBehaviour {
 
 	public float exitAfterBlooperProbability = 0.8f;
 
-	void Start () {
+	void Awake () {
 		isWandering = true;
 		nextTarget = transform.position;
 		timeWithoutCheck = enterCheckTime;
@@ -142,6 +142,9 @@ public class GhostBehaviour : MonoBehaviour {
 		hauntValue = 0f;
 		hauntedArea.AddGhost (this);
 		currentHauntedArea = hauntedArea;
+		if(animationState == null) {
+			animationState = skeletonAnimation.state;
+		}
 		animationState.SetAnimation (0, "blooper", true);
 	}
 
@@ -150,6 +153,9 @@ public class GhostBehaviour : MonoBehaviour {
 		hauntValue = 0f;
 		hauntedArea.RemoveGhost (this);
 		currentHauntedArea = null;
+		if(animationState == null) {
+			animationState = skeletonAnimation.state;
+		}
 		animationState.SetAnimation (0, "normal_idle", true);
 	}
 
@@ -160,6 +166,9 @@ public class GhostBehaviour : MonoBehaviour {
 	}
 
 	public void SetState(bool state) {
+		if(animationState == null) {
+			animationState = skeletonAnimation.state;
+		}
 		animationState.SetAnimation (1, (state ? "show" : "hide"), true);
 	}
 }
