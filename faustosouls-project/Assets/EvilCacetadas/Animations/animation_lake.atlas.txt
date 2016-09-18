@@ -1,0 +1,97 @@
+
+animation_lake.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animations/eyes_open
+  rotate: false
+  xy: 886, 74
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_open-white
+  rotate: true
+  xy: 991, 200
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_pain
+  rotate: false
+  xy: 255, 3
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/lakewater
+  rotate: false
+  xy: 2, 2
+  size: 251, 67
+  orig: 251, 67
+  offset: 0, 0
+  index: -1
+animations/mouth_sad
+  rotate: false
+  xy: 255, 31
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/mouth_smile
+  rotate: false
+  xy: 312, 31
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/splash01
+  rotate: false
+  xy: 2, 71
+  size: 219, 178
+  orig: 219, 178
+  offset: 0, 0
+  index: -1
+animations/splash02
+  rotate: false
+  xy: 223, 71
+  size: 219, 178
+  orig: 219, 178
+  offset: 0, 0
+  index: -1
+animations/splash03
+  rotate: false
+  xy: 444, 71
+  size: 219, 178
+  orig: 219, 178
+  offset: 0, 0
+  index: -1
+animations/splash_shark
+  rotate: false
+  xy: 665, 71
+  size: 219, 178
+  orig: 219, 178
+  offset: 0, 0
+  index: -1
+animations/swimguy2_arm
+  rotate: false
+  xy: 369, 43
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/swimguy2_foot
+  rotate: true
+  xy: 937, 70
+  size: 30, 39
+  orig: 30, 39
+  offset: 0, 0
+  index: -1
+animations/swimguy2_torso
+  rotate: false
+  xy: 886, 102
+  size: 103, 147
+  orig: 103, 147
+  offset: 0, 0
+  index: -1
