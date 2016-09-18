@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,7 +12,7 @@ public class CameraController : MonoBehaviour {
 
 	private bool ghosting;
 
-	private float score;
+	private int score;
 
 	private List<GhostBehaviour> ghosts;
 
@@ -72,6 +73,7 @@ public class CameraController : MonoBehaviour {
 		ghosting = true;
 
 		score = 0;
+		PlayerPrefs.SetInt("Score", score);
 
 		evilBackgroundRenderer = background.FindChild ("EvilBackground").GetComponent<SpriteRenderer> ();
 
@@ -143,8 +145,8 @@ public class CameraController : MonoBehaviour {
 		if (recording) {
 			recordingTime -= Time.deltaTime;
 			if (recordingTime <= 0.0f) {
-				Debug.Log ("Game Over");
-				Time.timeScale = 0;
+				PlayerPrefs.SetInt("Score", score);
+				SceneManager.LoadScene("GameOver");
 			}
 		}
 
@@ -181,7 +183,7 @@ public class CameraController : MonoBehaviour {
 //			viewPosition += new Vector3 (hauntedAreaSize.x * 0.5f, hauntedAreaSize.y * 0.5f);
 			if ((viewPosition.x >= -0.2 && viewPosition.x <= 1.2) && (viewPosition.y >= -0.2 && viewPosition.y <= 1.2)) {
 				if (recording)
-					score += Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue ());
+					score += (int) Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue ());
 			} else {
 				hauntedArea.CheckForBlooperRecovery ();
 			}
