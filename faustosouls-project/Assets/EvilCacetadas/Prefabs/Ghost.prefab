@@ -149,8 +149,8 @@ MonoBehaviour:
   enterCheckTime: 2
   exitCheckTime: 4
   enterProbability: 0.5
-  exitProbability: 0.3
-  exitAfterBlooperProbability: 0.8
+  exitProbability: 0.2
+  exitAfterBlooperProbability: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -172,6 +172,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: enterProbability
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: exitProbability
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: exitAfterBlooperProbability
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

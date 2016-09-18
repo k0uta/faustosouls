@@ -11,6 +11,8 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 	private List<GhostBehaviour> ghosts;
 
+	private AudioSource audioSource;
+
 	private bool bloopering;
 
 	private enum BlooperTrigger
@@ -42,6 +44,8 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 	public float blooperValueDecayPerSecond = 5f;
 
+	public AudioClip[] blooperSounds;
+
 	// Use this for initialization
 	void Start () {
 		ghosts = new List<GhostBehaviour> ();
@@ -53,6 +57,7 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		spineAnimationState = skeletonAnimation.state;
 		spineAnimationState.Complete += OnSpineComplete;
 		blooperTrigger = BlooperTrigger.NONE;
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void OnSpineComplete (Spine.AnimationState state, int trackIndex, int loopCount) {
@@ -90,7 +95,10 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		string blooperAnimation = (blooperTrigger == BlooperTrigger.WEAK) ? "blooper1" : "blooper2";
 		blooperTrigger = BlooperTrigger.NONE;
 
+		audioSource.PlayOneShot (blooperSounds [Random.Range (1, blooperSounds.Length)]);
+
 		spineAnimationState.SetAnimation (0, blooperAnimation, false);
+
 		for (int i = 0; i < ghosts.Count; i++) {
 			ghosts [i].StayCheck (this, true);
 		}
