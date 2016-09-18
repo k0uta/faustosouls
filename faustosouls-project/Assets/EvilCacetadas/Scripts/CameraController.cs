@@ -41,11 +41,25 @@ public class CameraController : MonoBehaviour {
 
 	public float speed = 1.0f;
 
+	public float batteryChargeAnimationSpeed = 40;
+
 	public float recordingMinutes = 1;
 
 	public float ghostingMinutes = 1;
 
 	public Transform hudCanvas;
+
+	private RectTransform batteryChargeMask;
+
+	private Vector2 batteryChargeMaskSize;
+
+	private RectTransform batteryCharge;
+
+	private RectTransform batteryCharge2;
+
+	private RectTransform batteryChargeSize;
+
+	private Vector2 batteryChargeAnimationTarget;
 
 	public Transform hauntedAreasGroup;
 
@@ -84,6 +98,11 @@ public class CameraController : MonoBehaviour {
 		timeTextShadow = hudCanvas.FindChild("TimeTextShadow").GetComponent<Text> ();
 		recordingGroup = hudCanvas.FindChild ("RecordingGroup");
 		recordingImage = recordingGroup.FindChild("RecordingImage").GetComponent<Image> ();
+		batteryChargeMask = hudCanvas.FindChild ("BatteryChargeMask").GetComponent (typeof (RectTransform)) as RectTransform;
+		batteryChargeMaskSize = batteryChargeMask.sizeDelta; 
+		batteryCharge = hudCanvas.FindChild ("BatteryChargeMask").FindChild ("BatteryCharge").GetComponent (typeof (RectTransform)) as RectTransform;
+		batteryCharge2 = hudCanvas.FindChild ("BatteryChargeMask").FindChild ("BatteryCharge2").GetComponent (typeof (RectTransform)) as RectTransform;
+		batteryChargeAnimationTarget = batteryCharge.anchoredPosition - new Vector2(batteryCharge.sizeDelta.x, 0);
 
 		scoreText = hudCanvas.FindChild("ScoreText").GetComponent<Text> ();
 		scoreTextShadow = hudCanvas.FindChild("ScoreTextShadow").GetComponent<Text> ();
@@ -133,7 +152,18 @@ public class CameraController : MonoBehaviour {
 
 		if (ghosting) {
 			ghostingTime -= Time.deltaTime;
-			if (recordingTime <= 0.0f) {
+
+			batteryCharge.anchoredPosition = Vector2.MoveTowards (batteryCharge.anchoredPosition, batteryChargeAnimationTarget, batteryChargeAnimationSpeed * Time.deltaTime);
+			batteryCharge2.anchoredPosition = Vector2.MoveTowards (batteryCharge2.anchoredPosition, batteryChargeAnimationTarget, batteryChargeAnimationSpeed * Time.deltaTime);
+			if(batteryCharge.anchoredPosition.Equals(batteryChargeAnimationTarget)) {
+				batteryCharge.anchoredPosition = new Vector2(batteryCharge2.anchoredPosition.x + batteryCharge.sizeDelta.x, batteryCharge.anchoredPosition.y);
+			} else if(batteryCharge2.anchoredPosition.Equals(batteryChargeAnimationTarget)) {
+				batteryCharge2.anchoredPosition = new Vector2(batteryCharge.anchoredPosition.x + batteryCharge.sizeDelta.x, batteryCharge2.anchoredPosition.y);
+			}
+
+			batteryChargeMask.sizeDelta = new Vector2 (batteryChargeMaskSize.x * (ghostingTime / (ghostingMinutes * 60.0f)), batteryChargeMaskSize.y);
+
+			if (ghostingTime <= 0.0f) {
 				StopGhosting ();
 			}
 		}
