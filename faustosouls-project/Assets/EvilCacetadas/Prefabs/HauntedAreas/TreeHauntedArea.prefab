@@ -1,44 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &177774
+--- !u!1 &192398
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 412360}
-  - 33: {fileID: 3370894}
-  - 23: {fileID: 2311672}
-  - 114: {fileID: 11494836}
-  - 50: {fileID: 5061344}
-  - 61: {fileID: 6152308}
-  - 114: {fileID: 11491896}
+  - 4: {fileID: 489490}
+  - 33: {fileID: 3394020}
+  - 23: {fileID: 2359864}
+  - 114: {fileID: 11411764}
+  - 50: {fileID: 5011302}
+  - 114: {fileID: 11485700}
+  - 61: {fileID: 6146502}
   m_Layer: 0
   m_Name: TreeHauntedArea
-  m_TagString: Untagged
+  m_TagString: HauntedArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &412360
+--- !u!4 &489490
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177774}
+  m_GameObject: {fileID: 192398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -15, y: -0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2311672
+--- !u!23 &2359864
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177774}
+  m_GameObject: {fileID: 192398}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -57,22 +57,22 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -811159777
   m_SortingOrder: 0
---- !u!33 &3370894
+--- !u!33 &3394020
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177774}
+  m_GameObject: {fileID: 192398}
   m_Mesh: {fileID: 0}
---- !u!50 &5061344
+--- !u!50 &5011302
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177774}
+  m_GameObject: {fileID: 192398}
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -83,42 +83,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6152308
+--- !u!61 &6146502
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177774}
+  m_GameObject: {fileID: 192398}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.009595573, y: -0.003137052}
+  m_Offset: {x: -0.2766288, y: 0.47751737}
   serializedVersion: 2
-  m_Size: {x: 1.4892976, y: 1.6850238}
---- !u!114 &11491896
+  m_Size: {x: 1.7681965, y: 2.6349654}
+--- !u!114 &11411764
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98c71ab476d945fead212ad08e354e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkTime: 5
-  blooperProbability: 0
-  ghostHauntWeight: 0.1
-  blooperValuePerSecond: 100
-  blooperValueDecayPerSecond: 5
---- !u!114 &11494836
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177774}
+  m_GameObject: {fileID: 192398}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
@@ -138,6 +122,24 @@ MonoBehaviour:
   _animationName: normal_idle
   loop: 1
   timeScale: 1
+--- !u!114 &11485700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98c71ab476d945fead212ad08e354e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkTime: 2
+  blooperProbability: 0.2
+  strongBlooperHauntValue: 0.6
+  ghostHauntWeight: 0.2
+  weakBlooperValuePerSecond: 100
+  strongBlooperValuePerSecond: 300
+  blooperValueDecayPerSecond: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -146,14 +148,14 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: m_LocalPosition.x
-      value: 0
+      propertyPath: m_SortingLayerID
+      value: -811159777
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_LocalPosition.y
-      value: 0
+      propertyPath: m_TagString
+      value: HauntedArea
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 177774}
+  m_RootGameObject: {fileID: 192398}
   m_IsPrefabParent: 1

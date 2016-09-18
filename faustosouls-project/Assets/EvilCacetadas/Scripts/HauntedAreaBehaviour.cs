@@ -13,7 +13,14 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 	private bool bloopering;
 
-	private bool triggerBlooper;
+	private enum BlooperTrigger
+	{
+		NONE,
+		WEAK,
+		STRONG
+	};
+
+	private BlooperTrigger blooperTrigger;
 
 	private bool blooped;
 
@@ -23,11 +30,15 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 	public float checkTime = 5.0f;
 
-	public float blooperProbability = 0.3f;
+	public float blooperProbability = 0.5f;
+
+	public float strongBlooperHauntValue = 0.6f;
 
 	public float ghostHauntWeight = 0.1f;
 
-	public float blooperValuePerSecond = 100;
+	public float weakBlooperValuePerSecond = 100;
+
+	public float strongBlooperValuePerSecond = 200;
 
 	public float blooperValueDecayPerSecond = 5f;
 
@@ -41,7 +52,7 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		skeletonAnimation = GetComponent<SkeletonAnimation> ();
 		spineAnimationState = skeletonAnimation.state;
 		spineAnimationState.Complete += OnSpineComplete;
-		triggerBlooper = false;
+		blooperTrigger = BlooperTrigger.NONE;
 	}
 
 	void OnSpineComplete (Spine.AnimationState state, int trackIndex, int loopCount) {
@@ -70,13 +81,16 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 	}
 
 	void CheckBlooperAnimation() {
-		if (!triggerBlooper)
+		if (blooperTrigger == BlooperTrigger.NONE)
 			return;
 
 		bloopering = true;
-		triggerBlooper = false;
-		currentValue = blooperValuePerSecond;
-		spineAnimationState.SetAnimation (0, "blooper2", false);
+		currentValue = (blooperTrigger == BlooperTrigger.WEAK) ? weakBlooperValuePerSecond : strongBlooperValuePerSecond;
+
+		string blooperAnimation = (blooperTrigger == BlooperTrigger.WEAK) ? "blooper1" : "blooper2";
+		blooperTrigger = BlooperTrigger.NONE;
+
+		spineAnimationState.SetAnimation (0, blooperAnimation, false);
 		foreach (var ghost in ghosts) {
 			ghost.StayCheck (this);
 		}
@@ -90,7 +104,7 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 		float valueToBlooper = Random.Range(blooperProbability, 1.0f);
 		if (totalHauntValue >= valueToBlooper) {
-			triggerBlooper = true;
+			blooperTrigger = (totalHauntValue < strongBlooperHauntValue) ? BlooperTrigger.WEAK : BlooperTrigger.STRONG;
 		}
 	}
 	

@@ -1,104 +1,132 @@
 
 animation_tree.png
-size: 512,128
+size: 512,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+animations/animal_eyes_angry
+  rotate: false
+  xy: 357, 101
+  size: 29, 20
+  orig: 29, 20
+  offset: 0, 0
+  index: -1
 animations/animal_eyes_closed
   rotate: false
-  xy: 459, 106
+  xy: 203, 21
   size: 29, 20
   orig: 29, 20
   offset: 0, 0
   index: -1
 animations/animal_eyes_open
-  rotate: true
-  xy: 490, 97
+  rotate: false
+  xy: 234, 21
   size: 29, 20
   orig: 29, 20
   offset: 0, 0
   index: -1
-animations/cat_body
+animations/bear
   rotate: false
-  xy: 151, 43
+  xy: 2, 53
+  size: 193, 201
+  orig: 193, 201
+  offset: 0, 0
+  index: -1
+animations/cat_body
+  rotate: true
+  xy: 197, 43
   size: 78, 83
   orig: 78, 83
   offset: 0, 0
   index: -1
 animations/cat_mouth01
-  rotate: false
-  xy: 459, 84
+  rotate: true
+  xy: 339, 67
   size: 29, 20
   orig: 29, 20
   offset: 0, 0
   index: -1
 animations/cat_mouth02
   rotate: true
-  xy: 490, 66
+  xy: 361, 70
   size: 29, 20
   orig: 29, 20
   offset: 0, 0
   index: -1
 animations/cat_paw
   rotate: false
-  xy: 288, 77
+  xy: 265, 20
   size: 20, 21
   orig: 20, 21
   offset: 0, 0
   index: -1
 animations/cat_tail
   rotate: false
-  xy: 231, 103
+  xy: 282, 98
   size: 73, 23
   orig: 73, 23
   offset: 0, 0
   index: -1
 animations/eyes_open
-  rotate: false
-  xy: 306, 100
+  rotate: true
+  xy: 2, 2
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_open-white
+  rotate: true
+  xy: 30, 2
   size: 49, 26
   orig: 49, 26
   offset: 0, 0
   index: -1
 animations/eyes_pain
-  rotate: false
-  xy: 357, 100
+  rotate: true
+  xy: 58, 2
   size: 49, 26
   orig: 49, 26
   offset: 0, 0
   index: -1
 animations/mouth_sad
   rotate: false
-  xy: 231, 63
+  xy: 114, 13
   size: 55, 38
   orig: 55, 38
   offset: 0, 0
   index: -1
 animations/mouth_smile
   rotate: false
-  xy: 183, 3
+  xy: 282, 58
   size: 55, 38
   orig: 55, 38
   offset: 0, 0
   index: -1
 animations/swingsgirl_arm
-  rotate: false
-  xy: 408, 100
+  rotate: true
+  xy: 86, 2
   size: 49, 26
   orig: 49, 26
   offset: 0, 0
   index: -1
 animations/swingsgirl_foot
   rotate: false
-  xy: 151, 2
+  xy: 171, 2
   size: 30, 39
   orig: 30, 39
   offset: 0, 0
   index: -1
 animations/swingsgirl_torso
-  rotate: true
-  xy: 2, 23
+  rotate: false
+  xy: 406, 107
   size: 103, 147
   orig: 103, 147
+  offset: 0, 0
+  index: -1
+animations/treetop
+  rotate: false
+  xy: 197, 123
+  size: 207, 131
+  orig: 207, 131
   offset: 0, 0
   index: -1
