@@ -26,6 +26,10 @@ public class CameraController : MonoBehaviour {
 
 	private Text scoreTextShadow;
 
+	private Transform ghostRecordingGroup;
+
+	private Image ghostRecordingImage;
+
 	private Transform recordingGroup;
 
 	private Image recordingImage;
@@ -66,6 +70,10 @@ public class CameraController : MonoBehaviour {
 
 	public Transform hauntedAreasGroup;
 
+	public Transform tutorialCanvas;
+
+	private bool isShowingTutorial = false;
+
 	// Use this for initialization
 	void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
@@ -73,10 +81,6 @@ public class CameraController : MonoBehaviour {
 		#if UNITY_ANDROID
 		Input.gyro.enabled = true;
 		#endif
-
-		recording = true;
-
-		ghosting = true;
 
 		score = 0;
 		PlayerPrefs.SetInt("Score", score);
@@ -106,6 +110,8 @@ public class CameraController : MonoBehaviour {
 		timeTextShadow = hudCanvas.FindChild("TimeTextShadow").GetComponent<Text> ();
 		recordingGroup = hudCanvas.FindChild ("RecordingGroup");
 		recordingImage = recordingGroup.FindChild("RecordingImage").GetComponent<Image> ();
+		ghostRecordingGroup = hudCanvas.FindChild("GhostRecordingGroup");
+		ghostRecordingImage = ghostRecordingGroup.FindChild("GhostRecording").GetComponent<Image> ();
 		batteryChargeMask = hudCanvas.FindChild ("BatteryChargeMask").GetComponent (typeof (RectTransform)) as RectTransform;
 		batteryChargeMaskSize = batteryChargeMask.sizeDelta; 
 		batteryCharge = hudCanvas.FindChild ("BatteryChargeMask").FindChild ("BatteryCharge").GetComponent (typeof (RectTransform)) as RectTransform;
@@ -114,8 +120,22 @@ public class CameraController : MonoBehaviour {
 
 		scoreText = hudCanvas.FindChild("ScoreText").GetComponent<Text> ();
 		scoreTextShadow = hudCanvas.FindChild("ScoreTextShadow").GetComponent<Text> ();
+		
+		#if UNITY_ANDROID
+			tutorialCanvas.FindChild("TutorialMobile").GetComponent<Image>().enabled = true;
+			tutorialCanvas.FindChild("Tutorial").GetComponent<Image>().enabled = false;
+		#else
+			tutorialCanvas.FindChild("TutorialMobile").GetComponent<Image>().enabled = false;
+			tutorialCanvas.FindChild("Tutorial").GetComponent<Image>().enabled = true;
+		#endif
+		isShowingTutorial = true;
+
+		StopGhosting();
+		StopRecording();
+		UpdateStatusText ();
 
 		StartCoroutine (RecordingHudImageLoop ());
+		StartCoroutine (GhostRecordingHudImageLoop ());
 	}
 
 	IEnumerator RecordingHudImageLoop() {
@@ -125,8 +145,24 @@ public class CameraController : MonoBehaviour {
 		}
 	}
 
+	IEnumerator GhostRecordingHudImageLoop() {
+		while (true) {
+			ghostRecordingImage.enabled = !ghostRecordingImage.enabled;
+			yield return new WaitForSeconds (0.4f);
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
+		if(isShowingTutorial) {
+			if(Input.GetMouseButton(0)) {
+				isShowingTutorial = false;
+				tutorialCanvas.gameObject.SetActive(false);
+			}
+			
+			return;
+		}
+
 		if (Input.GetKeyDown (KeyCode.Escape))
 			Cursor.visible = true;
 
@@ -223,7 +259,7 @@ public class CameraController : MonoBehaviour {
 	void StartGhosting() {
 		ghosting = true;
 		evilBackgroundRenderer.enabled = ghosting;
-
+		ghostRecordingGroup.gameObject.SetActive (ghosting);
 		for (int i = 0; i < ghosts.Count; i++) {
 			ghosts [i].SetState (true);
 		}
@@ -232,6 +268,7 @@ public class CameraController : MonoBehaviour {
 	void StopGhosting() {
 		ghosting = false;
 		evilBackgroundRenderer.enabled = ghosting;
+		ghostRecordingGroup.gameObject.SetActive (ghosting);
 		for (int i = 0; i < ghosts.Count; i++) {
 			ghosts [i].SetState (false);
 		}
