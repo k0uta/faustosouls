@@ -1,0 +1,55 @@
+
+animation_will.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animations/eye_open
+  rotate: false
+  xy: 153, 6
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+animations/mouth_sad
+  rotate: true
+  xy: 283, 140
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/mouth_smile
+  rotate: false
+  xy: 337, 212
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/will_arm
+  rotate: false
+  xy: 153, 39
+  size: 51, 50
+  orig: 51, 50
+  offset: 0, 0
+  index: -1
+animations/will_ball
+  rotate: false
+  xy: 283, 197
+  size: 52, 53
+  orig: 52, 53
+  offset: 0, 0
+  index: -1
+animations/will_basketballring
+  rotate: true
+  xy: 2, 91
+  size: 159, 279
+  orig: 159, 279
+  offset: 0, 0
+  index: -1
+animations/will_body
+  rotate: true
+  xy: 2, 2
+  size: 87, 149
+  orig: 87, 149
+  offset: 0, 0
+  index: -1

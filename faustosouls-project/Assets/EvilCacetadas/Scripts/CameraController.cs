@@ -196,6 +196,7 @@ public class CameraController : MonoBehaviour {
 
 		if (recordingTime <= 0.0f || ghostingTime <= 0.0f) {
 			PlayerPrefs.SetInt("Score", score);
+			PlayerPrefs.Save ();
 			SceneManager.LoadScene("GameOver");
 		}
 
@@ -220,7 +221,7 @@ public class CameraController : MonoBehaviour {
 		}
 
 		#if UNITY_ANDROID
-		transform.Translate(new Vector3(-Input.gyro.rotationRateUnbiased.y * speed, Input.gyro.rotationRateUnbiased.x * speed));
+		transform.Translate(new Vector3(-Input.gyro.rotationRateUnbiased.y * speed * 2.0f, Input.gyro.rotationRateUnbiased.x * speed * 2.0f));
 		#else
 		transform.Translate (new Vector3(Input.GetAxis ("Mouse X") * speed, Input.GetAxis ("Mouse Y") * speed));
 		#endif

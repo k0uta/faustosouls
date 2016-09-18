@@ -1,0 +1,55 @@
+
+animation_tub.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animations/eyes_open
+  rotate: false
+  xy: 72, 84
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_open-white
+  rotate: false
+  xy: 156, 180
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/eyes_pain
+  rotate: false
+  xy: 2, 2
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+animations/mouth_sad
+  rotate: false
+  xy: 156, 208
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/mouth_smile
+  rotate: false
+  xy: 2, 30
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/ripple
+  rotate: false
+  xy: 2, 70
+  size: 68, 40
+  orig: 68, 40
+  offset: 0, 0
+  index: -1
+animations/swimgirl_body
+  rotate: false
+  xy: 2, 112
+  size: 152, 134
+  orig: 152, 134
+  offset: 0, 0
+  index: -1

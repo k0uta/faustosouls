@@ -1,0 +1,48 @@
+
+animation_skate.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animations/coolkid_arm
+  rotate: true
+  xy: 150, 33
+  size: 51, 23
+  orig: 51, 23
+  offset: 0, 0
+  index: -1
+animations/coolkid_body
+  rotate: false
+  xy: 2, 2
+  size: 78, 119
+  orig: 78, 119
+  offset: 0, 0
+  index: -1
+animations/coolkid_glasses
+  rotate: false
+  xy: 82, 56
+  size: 66, 28
+  orig: 66, 28
+  offset: 0, 0
+  index: -1
+animations/coolkid_skate
+  rotate: false
+  xy: 82, 86
+  size: 105, 35
+  orig: 105, 35
+  offset: 0, 0
+  index: -1
+animations/mouth_sad
+  rotate: false
+  xy: 82, 16
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
+animations/mouth_smile
+  rotate: false
+  xy: 189, 83
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
