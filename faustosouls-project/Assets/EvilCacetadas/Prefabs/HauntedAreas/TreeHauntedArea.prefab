@@ -136,10 +136,10 @@ MonoBehaviour:
   checkTime: 2
   blooperProbability: 0.2
   strongBlooperHauntValue: 0.6
-  ghostHauntWeight: 0.2
-  weakBlooperValuePerSecond: 100
-  strongBlooperValuePerSecond: 300
-  blooperValueDecayPerSecond: 5
+  ghostHauntWeight: 0.15
+  weakBlooperValuePerSecond: 300
+  strongBlooperValuePerSecond: 600
+  blooperValueDecayPerSecond: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
