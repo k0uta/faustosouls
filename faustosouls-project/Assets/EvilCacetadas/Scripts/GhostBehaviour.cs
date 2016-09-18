@@ -34,6 +34,8 @@ public class GhostBehaviour : MonoBehaviour {
 
 	public float exitProbability = 0.5f;
 
+	public float exitAfterBlooperProbability = 0.8f;
+
 	void Start () {
 		isWandering = true;
 		nextTarget = transform.position;
@@ -97,9 +99,8 @@ public class GhostBehaviour : MonoBehaviour {
 			} else {
 				transform.position = Vector3.MoveTowards (transform.position, nextTarget, moveSpeed * Time.deltaTime);
 			}
-//			transform.position = Vector3.MoveTowards (transform.position, ), moveSpeed * Time.deltaTime);
 		}
-		StayCheck (currentHauntedArea);
+		StayCheck (currentHauntedArea, false);
 	}
 
 	void Update () {
@@ -112,7 +113,7 @@ public class GhostBehaviour : MonoBehaviour {
 		}
 	}
 
-	public void StayCheck(HauntedAreaBehaviour hauntedArea) {
+	public void StayCheck(HauntedAreaBehaviour hauntedArea, bool afterBlooper) {
 		if (isWandering) {
 			if (timeWithoutCheck > enterCheckTime) {
 				timeWithoutCheck = 0.0f;
@@ -121,10 +122,16 @@ public class GhostBehaviour : MonoBehaviour {
 				}
 			}
 		} else {
-			if (timeWithoutCheck > exitCheckTime) {
-				timeWithoutCheck = 0.0f;
-				if (Random.value <= exitProbability) {
+			if (afterBlooper) {
+				if (Random.value <= exitAfterBlooperProbability) {
 					ExitFrom (hauntedArea);
+				}
+			} else {
+				if (timeWithoutCheck > exitCheckTime) {
+					timeWithoutCheck = 0.0f;
+					if (Random.value <= exitProbability) {
+						ExitFrom (hauntedArea);
+					}
 				}
 			}
 		}
@@ -148,7 +155,7 @@ public class GhostBehaviour : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.tag.Equals("HauntedArea")) {
-			StayCheck (other.GetComponent<HauntedAreaBehaviour> ());
+			StayCheck (other.GetComponent<HauntedAreaBehaviour> (), false);
 		}
 	}
 

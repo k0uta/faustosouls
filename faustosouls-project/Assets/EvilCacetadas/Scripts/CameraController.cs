@@ -175,7 +175,8 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void CheckCameraArea() {
-		foreach (var hauntedArea in hauntedAreas) {
+		for (int i = 0; i < hauntedAreas.Count; i++) {
+			HauntedAreaBehaviour hauntedArea = hauntedAreas [i];
 			Vector3 viewPosition = Camera.main.WorldToViewportPoint (hauntedArea.transform.position);
 //			Vector2 hauntedAreaSize = hauntedArea.GetComponent<BoxCollider2D> ().size;
 //			viewPosition += new Vector3 (hauntedAreaSize.x * 0.5f, hauntedAreaSize.y * 0.5f);
@@ -203,16 +204,16 @@ public class CameraController : MonoBehaviour {
 		ghosting = true;
 		evilBackgroundRenderer.enabled = ghosting;
 
-		foreach (var ghost in ghosts) {
-			ghost.SetState(true);
+		for (int i = 0; i < ghosts.Count; i++) {
+			ghosts [i].SetState (true);
 		}
 	}
 
 	void StopGhosting() {
 		ghosting = false;
 		evilBackgroundRenderer.enabled = ghosting;
-		foreach (var ghost in ghosts) {
-			ghost.SetState(false);
+		for (int i = 0; i < ghosts.Count; i++) {
+			ghosts [i].SetState (false);
 		}
 	}
 
