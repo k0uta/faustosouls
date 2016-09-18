@@ -117,17 +117,17 @@ public class GhostBehaviour : MonoBehaviour {
 		if (isWandering) {
 			if (timeWithoutCheck > enterCheckTime) {
 				timeWithoutCheck = 0.0f;
-				if (Random.value <= enterProbability) {
+				if (hauntedArea.CanBeHaunted() && Random.value <= enterProbability) {
 					StayAt (hauntedArea);
 				}
 			}
 		} else {
 			if (afterBlooper) {
-				if (Random.value <= exitAfterBlooperProbability) {
+				if (!hauntedArea.CanBeHaunted() || Random.value <= exitAfterBlooperProbability) {
 					ExitFrom (hauntedArea);
 				}
 			} else {
-				if (timeWithoutCheck > exitCheckTime) {
+				if (!hauntedArea.CanBeHaunted() || timeWithoutCheck > exitCheckTime) {
 					timeWithoutCheck = 0.0f;
 					if (Random.value <= exitProbability) {
 						ExitFrom (hauntedArea);

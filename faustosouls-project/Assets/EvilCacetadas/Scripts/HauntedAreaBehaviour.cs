@@ -149,4 +149,8 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		blooped = false;
 		spineAnimationState.SetAnimation (0, "normal_idle", true);
 	}
+
+	public bool CanBeHaunted() {
+		return (!blooped && !bloopering && (blooperTrigger == BlooperTrigger.NONE));
+	}
 }

@@ -1103,7 +1103,7 @@ MonoBehaviour:
   batteryChargeAnimationSpeed: 40
   recordingMinutes: 0.5
   focusBonus: 1
-  ghostingMinutes: 0.2
+  ghostingMinutes: 0.5
   hudCanvas: {fileID: 1888689024}
   hauntedAreasGroup: {fileID: 1037300836}
 --- !u!82 &916951802
