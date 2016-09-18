@@ -148,7 +148,7 @@ MonoBehaviour:
   moveSpeed: 1
   enterCheckTime: 2
   exitCheckTime: 4
-  enterProbability: 0.5
+  enterProbability: 0.6
   exitProbability: 0.2
   exitAfterBlooperProbability: 1
 --- !u!1001 &100100000
@@ -176,7 +176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: enterProbability
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: exitProbability

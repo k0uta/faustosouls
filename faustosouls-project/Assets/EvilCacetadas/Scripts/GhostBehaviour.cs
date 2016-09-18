@@ -61,7 +61,7 @@ public class GhostBehaviour : MonoBehaviour {
 	}
 
 	void AssignNewTarget() {
-		nextTarget = transform.position + new Vector3 (Random.Range (3, 10) * RandomSign(), Random.Range (1, 2) * RandomSign());
+		nextTarget = transform.position + new Vector3 (Random.Range (1, 4) * RandomSign(), Random.Range (1, 2) * RandomSign());
 	}
 
 	void CheckBoundaries() {

@@ -56,6 +56,7 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		skeletonAnimation = GetComponent<SkeletonAnimation> ();
 		spineAnimationState = skeletonAnimation.state;
 		spineAnimationState.Complete += OnSpineComplete;
+		spineAnimationState.Event += EventHandler;
 		blooperTrigger = BlooperTrigger.NONE;
 		audioSource = GetComponent<AudioSource> ();
 	}
@@ -85,6 +86,23 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		blooped = true;
 	}
 
+	void EventHandler(Spine.AnimationState state, int trackIndex, Spine.Event spineEvent) {
+		Debug.Log (spineEvent.Data.name);
+		switch (spineEvent.Data.name) {
+		case "snd_cassetada_1":
+			audioSource.PlayOneShot (blooperSounds [0]);
+			break;
+		case "snd_cassetada_2":
+			audioSource.PlayOneShot (blooperSounds [1]);
+			break;
+		case "snd_cassetada_3":
+			audioSource.PlayOneShot (blooperSounds [2]);
+			break;
+		default:
+			break;			
+		}
+	}
+
 	void CheckBlooperAnimation() {
 		if (blooperTrigger == BlooperTrigger.NONE)
 			return;
@@ -94,8 +112,6 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 		string blooperAnimation = (blooperTrigger == BlooperTrigger.WEAK) ? "blooper1" : "blooper2";
 		blooperTrigger = BlooperTrigger.NONE;
-
-		audioSource.PlayOneShot (blooperSounds [Random.Range (1, blooperSounds.Length)]);
 
 		spineAnimationState.SetAnimation (0, blooperAnimation, false);
 
