@@ -30,6 +30,8 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 
 	private Spine.AnimationState spineAnimationState;
 
+	private bool canBeHaunted;
+
 	public float checkTime = 5.0f;
 
 	public float blooperProbability = 0.5f;
@@ -59,6 +61,7 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 		spineAnimationState.Event += EventHandler;
 		blooperTrigger = BlooperTrigger.NONE;
 		audioSource = GetComponent<AudioSource> ();
+		canBeHaunted = true;
 	}
 
 	void OnSpineComplete (Spine.AnimationState state, int trackIndex, int loopCount) {
@@ -89,6 +92,9 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 	void EventHandler(Spine.AnimationState state, int trackIndex, Spine.Event spineEvent) {
 		Debug.Log (spineEvent.Data.name);
 		switch (spineEvent.Data.name) {
+		case "bloop":
+			canBeHaunted = false;
+			break;
 		case "snd_cassetada_1":
 			audioSource.PlayOneShot (blooperSounds [0]);
 			break;
@@ -163,10 +169,11 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 			return;
 
 		blooped = false;
+		canBeHaunted = true;
 		spineAnimationState.SetAnimation (0, "normal_idle", true);
 	}
 
 	public bool CanBeHaunted() {
-		return (!blooped && !bloopering && (blooperTrigger == BlooperTrigger.NONE));
+		return canBeHaunted;
 	}
 }
