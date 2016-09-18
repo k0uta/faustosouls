@@ -1,0 +1,97 @@
+
+animation_ghost.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animations/ghost_body
+  rotate: false
+  xy: 2, 117
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_eyes01
+  rotate: false
+  xy: 2, 2
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_eyes02
+  rotate: false
+  xy: 103, 117
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head01
+  rotate: false
+  xy: 103, 2
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head02
+  rotate: false
+  xy: 204, 117
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head03
+  rotate: false
+  xy: 204, 2
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head04
+  rotate: false
+  xy: 305, 117
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head05
+  rotate: false
+  xy: 305, 2
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head06
+  rotate: false
+  xy: 406, 117
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head07
+  rotate: false
+  xy: 406, 2
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head08
+  rotate: false
+  xy: 507, 117
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_head09
+  rotate: false
+  xy: 507, 2
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1
+animations/ghost_headgreen
+  rotate: false
+  xy: 608, 117
+  size: 99, 113
+  orig: 99, 113
+  offset: 0, 0
+  index: -1

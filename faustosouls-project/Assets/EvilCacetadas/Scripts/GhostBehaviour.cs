@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Spine.Unity;
 
 public class GhostBehaviour : MonoBehaviour {
 
@@ -15,7 +16,9 @@ public class GhostBehaviour : MonoBehaviour {
 
 	private HauntedAreaBehaviour currentHauntedArea;
 
-	private SpriteRenderer spriteRenderer;
+	private SkeletonAnimation skeletonAnimation;
+
+	private Spine.AnimationState animationState;
 
 	public float hauntValue;
 
@@ -39,15 +42,20 @@ public class GhostBehaviour : MonoBehaviour {
 
 		Transform background = GameObject.Find ("Background").transform;
 
-		SpriteRenderer ghostSprite = transform.FindChild ("Sprite").GetComponent<SpriteRenderer> ();
+		BoxCollider2D ghostBoxCollider = transform.GetComponent<BoxCollider2D> ();
 		SpriteRenderer backgroundSprite = background.FindChild("DefaultBackground").GetComponent<SpriteRenderer> ();
-		boundaries = new Vector2 ((float)backgroundSprite.bounds.size.x * 0.5f - (float)ghostSprite.bounds.size.x * 0.5f, (float)backgroundSprite.bounds.size.y * 0.5f - (float)ghostSprite.bounds.size.y * 0.5f);
+		boundaries = new Vector2 ((float)backgroundSprite.bounds.size.x * 0.5f - (float)ghostBoxCollider.size.x * 0.5f, (float)backgroundSprite.bounds.size.y * 0.5f - (float)ghostBoxCollider.size.y * 0.5f);
 
-		spriteRenderer = transform.FindChild ("Sprite").GetComponent<SpriteRenderer> ();
+		skeletonAnimation = transform.FindChild ("Spine").GetComponent<SkeletonAnimation> ();
+		animationState = skeletonAnimation.state;
 	}
 
 	float RandomSign() {
 		return (Random.value > 0.5f) ? -1.0f : 1.0f;
+	}
+
+	void AssignNewHauntTarget() {
+		nextTarget = currentHauntedArea.transform.position + new Vector3 (Random.value * 0.5f * RandomSign (), Random.value * 0.5f * RandomSign ());
 	}
 
 	void AssignNewTarget() {
@@ -84,7 +92,12 @@ public class GhostBehaviour : MonoBehaviour {
 		hauntValue = Mathf.Min (hauntValue, 1.0f);
 
 		if (currentHauntedArea) {
-			transform.position = Vector3.MoveTowards (transform.position, currentHauntedArea.transform.position, moveSpeed * Time.deltaTime);
+			if(transform.position.Equals(nextTarget)) {
+				AssignNewHauntTarget ();
+			} else {
+				transform.position = Vector3.MoveTowards (transform.position, nextTarget, moveSpeed * Time.deltaTime);
+			}
+//			transform.position = Vector3.MoveTowards (transform.position, ), moveSpeed * Time.deltaTime);
 		}
 		StayCheck (currentHauntedArea);
 	}
@@ -122,7 +135,7 @@ public class GhostBehaviour : MonoBehaviour {
 		hauntValue = 0f;
 		hauntedArea.AddGhost (this);
 		currentHauntedArea = hauntedArea;
-		spriteRenderer.color = Color.red;
+		animationState.SetAnimation (0, "blooper", true);
 	}
 
 	void ExitFrom(HauntedAreaBehaviour hauntedArea) {
@@ -130,7 +143,7 @@ public class GhostBehaviour : MonoBehaviour {
 		hauntValue = 0f;
 		hauntedArea.RemoveGhost (this);
 		currentHauntedArea = null;
-		spriteRenderer.color = Color.white;
+		animationState.SetAnimation (0, "normal_idle", true);
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
@@ -140,6 +153,6 @@ public class GhostBehaviour : MonoBehaviour {
 	}
 
 	public void SetState(bool state) {
-		spriteRenderer.enabled = state;
+		animationState.SetAnimation (1, (state ? "show" : "hide"), true);
 	}
 }

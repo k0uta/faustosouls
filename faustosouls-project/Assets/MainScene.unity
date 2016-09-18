@@ -757,8 +757,8 @@ MonoBehaviour:
   background: {fileID: 514074270}
   ghostsGroup: {fileID: 1053806721}
   speed: 0.1
-  recordingMinutes: 1
-  ghostingMinutes: 1
+  recordingMinutes: 0.5
+  ghostingMinutes: 0.2
   hudCanvas: {fileID: 1888689024}
   hauntedAreasGroup: {fileID: 1037300836}
 --- !u!1 &1019155248
@@ -896,8 +896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfed8f030c72b4f2b98b5e176ce2fb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalGhosts: 48
-  ghostPrefab: {fileID: 482300, guid: 5b7a5fcbd1f80454aa518d3f2c09de85, type: 2}
+  totalGhosts: 36
+  ghostPrefab: {fileID: 425240, guid: 5b7a5fcbd1f80454aa518d3f2c09de85, type: 2}
 --- !u!1 &1313700721
 GameObject:
   m_ObjectHideFlags: 0
