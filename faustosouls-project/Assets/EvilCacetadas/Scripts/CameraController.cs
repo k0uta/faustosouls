@@ -85,7 +85,7 @@ public class CameraController : MonoBehaviour {
 		#endif
 
 		score = 0;
-		// PlayerPrefs.SetInt("Score", score);
+		PlayerPrefs.SetInt("Score", score);
 
 		evilBackgroundRenderer = background.FindChild ("EvilBackground").GetComponent<SpriteRenderer> ();
 
@@ -192,10 +192,11 @@ public class CameraController : MonoBehaviour {
 
 		if (recording) {
 			recordingTime -= Time.deltaTime;
-			if (recordingTime <= 0.0f) {
-				PlayerPrefs.SetInt("Score", score);
-				SceneManager.LoadScene("GameOver");
-			}
+		}
+
+		if (recordingTime <= 0.0f || ghostingTime <= 0.0f) {
+			PlayerPrefs.SetInt("Score", score);
+			SceneManager.LoadScene("GameOver");
 		}
 
 		CheckCameraArea ();
