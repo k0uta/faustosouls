@@ -10,6 +10,8 @@ public class GhostBehaviour : MonoBehaviour {
 
 	private bool isWandering;
 
+	private bool ghostActive;
+
 	private Vector2 boundaries;
 
 	private Vector2 size;
@@ -19,6 +21,8 @@ public class GhostBehaviour : MonoBehaviour {
 	private SkeletonAnimation skeletonAnimation;
 
 	private Spine.AnimationState animationState;
+
+	private AudioSource audioSource;
 
 	public float hauntValue;
 
@@ -36,6 +40,8 @@ public class GhostBehaviour : MonoBehaviour {
 
 	public float exitAfterBlooperProbability = 0.8f;
 
+	public AudioClip[] ghostSounds;
+
 	void Awake () {
 		isWandering = true;
 		nextTarget = transform.position;
@@ -50,6 +56,11 @@ public class GhostBehaviour : MonoBehaviour {
 
 		skeletonAnimation = transform.FindChild ("Spine").GetComponent<SkeletonAnimation> ();
 		animationState = skeletonAnimation.state;
+
+		ghostActive = false;
+
+		audioSource = GetComponent<AudioSource> ();
+		StartCoroutine (SoundLoop ());
 	}
 
 	float RandomSign() {
@@ -111,6 +122,17 @@ public class GhostBehaviour : MonoBehaviour {
 		} else {
 			Haunt ();
 		}
+
+		audioSource.volume = (ghostActive ? 0.1f : 0f);
+	}
+
+	IEnumerator SoundLoop() {
+		while (true) {
+			if (ghostActive && !isWandering && !audioSource.isPlaying) {
+				audioSource.PlayOneShot (ghostSounds [Random.Range (0, ghostSounds.Length)]);
+			}
+			yield return new WaitForSeconds (Random.Range(0f, 1.5f));
+		}
 	}
 
 	public void StayCheck(HauntedAreaBehaviour hauntedArea, bool afterBlooper) {
@@ -170,5 +192,6 @@ public class GhostBehaviour : MonoBehaviour {
 			animationState = skeletonAnimation.state;
 		}
 		animationState.SetAnimation (1, (state ? "show" : "hide"), true);
+		ghostActive = state;
 	}
 }
