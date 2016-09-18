@@ -40,6 +40,8 @@ public class CameraController : MonoBehaviour {
 
 	private List<HauntedAreaBehaviour> hauntedAreas;
 
+	private AudioSource laughSource;
+
 	public Transform background;
 
 	public Transform ghostsGroup;
@@ -129,6 +131,8 @@ public class CameraController : MonoBehaviour {
 			tutorialCanvas.FindChild("Tutorial").GetComponent<Image>().enabled = true;
 		#endif
 		isShowingTutorial = true;
+
+		laughSource = transform.FindChild ("Laughs").GetComponent<AudioSource> ();
 
 		StopGhosting();
 		StopRecording();
@@ -226,6 +230,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void CheckCameraArea() {
+		int newScore = score;
 		for (int i = 0; i < hauntedAreas.Count; i++) {
 			HauntedAreaBehaviour hauntedArea = hauntedAreas [i];
 			Vector2 hauntedAreaSize = hauntedArea.GetComponent<BoxCollider2D> ().size;
@@ -237,12 +242,20 @@ public class CameraController : MonoBehaviour {
 					float positionBonus = 0.5f - ((viewPositionCenter.x > 0.5f) ? (viewPositionCenter.x - 0.5f) : (0.5f - viewPositionCenter.x));
 					positionBonus += 0.5f - ((viewPositionCenter.y > 0.5f) ? (viewPositionCenter.y - 0.5f) : (0.5f - viewPositionCenter.y));
 					positionBonus *= focusBonus;
-					score += (int)Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue () * positionBonus);
+					newScore += (int)Mathf.Floor(Time.deltaTime * hauntedArea.GetCurrentValue () * positionBonus);
 				}
 			} else {
 				hauntedArea.CheckForBlooperRecovery ();
 			}
 		}
+
+		if (recording && newScore != score) {
+			laughSource.volume = 0.2f;
+		} else {
+			laughSource.volume = 0f;
+		}
+
+		score = newScore;
 	}
 
 	void UpdateStatusText() {
@@ -282,6 +295,7 @@ public class CameraController : MonoBehaviour {
 	void StopRecording() {
 		recording = false;
 		recordingGroup.gameObject.SetActive (false);
+		laughSource.volume = 0;
 	}
 
 	void CheckBoundaries() {

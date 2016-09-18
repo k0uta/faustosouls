@@ -90,7 +90,6 @@ public class HauntedAreaBehaviour : MonoBehaviour {
 	}
 
 	void EventHandler(Spine.AnimationState state, int trackIndex, Spine.Event spineEvent) {
-		Debug.Log (spineEvent.Data.name);
 		switch (spineEvent.Data.name) {
 		case "bloop":
 			canBeHaunted = false;
