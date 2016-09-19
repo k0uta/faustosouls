@@ -82,7 +82,7 @@ public class CameraController : MonoBehaviour {
 
 		#if UNITY_ANDROID || UNITY_IOS
 		if(SystemInfo.supportsGyroscope)
-			Input.gyro.enabled = false;
+			Input.gyro.enabled = true;
 		#endif
 
 		score = 0;
