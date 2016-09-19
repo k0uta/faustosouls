@@ -81,7 +81,8 @@ public class CameraController : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 
 		#if UNITY_ANDROID || UNITY_IOS
-		Input.gyro.enabled = true;
+		if(SystemInfo.supportsGyroscope)
+			Input.gyro.enabled = false;
 		#endif
 
 		score = 0;
@@ -221,7 +222,11 @@ public class CameraController : MonoBehaviour {
 		}
 
 		#if UNITY_ANDROID || UNITY_IOS
-		transform.Translate(new Vector3(-Input.gyro.rotationRateUnbiased.y * speed * 2.0f, Input.gyro.rotationRateUnbiased.x * speed * 2.0f));
+		if(Input.gyro.enabled) {
+			transform.Translate(new Vector3(-Input.gyro.rotationRateUnbiased.y * speed * 2.0f, Input.gyro.rotationRateUnbiased.x * speed * 2.0f));
+		} else {
+			transform.Translate(new Vector3(Input.acceleration.x * speed * 3.0f, 0f));
+		}
 		#else
 		transform.Translate (new Vector3(Input.GetAxis ("Mouse X") * speed, Input.GetAxis ("Mouse Y") * speed));
 		#endif
