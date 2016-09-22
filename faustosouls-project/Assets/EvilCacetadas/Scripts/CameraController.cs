@@ -160,7 +160,7 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(isShowingTutorial) {
-			if(Input.GetMouseButton(0)) {
+			if(Input.GetMouseButtonUp(0)) {
 				isShowingTutorial = false;
 				tutorialCanvas.gameObject.SetActive(false);
 			}
